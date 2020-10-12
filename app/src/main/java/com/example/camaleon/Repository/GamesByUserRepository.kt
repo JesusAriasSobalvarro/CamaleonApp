@@ -13,7 +13,8 @@ class GamesByUserRepository() {
     val allGamesByUser = MutableLiveData<HashMap<String, GameInfo>>()
 
     init {
-        FirebaseDatabase.getInstance().child("gamesByUser").addValueEventListener(object:
+        //TODO -> Adding logic to query based on a value, it should query by user
+        FirebaseDatabase.getInstance().child("gamesByUser").orderByChild("score").equalTo(10.00).addValueEventListener(object:
             ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
